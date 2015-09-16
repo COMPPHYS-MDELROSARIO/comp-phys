@@ -24,24 +24,22 @@ abso = []
 abs_sort = []
 
 def sortList(z):
-    for temp in range(1,4):
+    temp = 1
+    while temp <= 3:
         if temp == 1:
-            for a in range (0, len(z)):
-                dist.append([z[a][temp], z[a][0]])
+            dist = [[z[a][temp], z[a][0]] for a in range(0, len(z))]
             dist_sort = sorted(dist)
         elif temp == 2:
-            for b in range (0, len(z)):
-                app.append([z[b][temp], z[b][0]])
+            app = [[z[a][temp], z[a][0]] for a in range(0, len(z))]
             app_sort = sorted(app)
         elif temp == 3:
-            for c in range (0, len(z)):
-                abso.append([z[c][temp], z[c][0]])
+            abso = [[z[a][temp], z[a][0]] for a in range(0, len(z))]
             abs_sort = sorted(abso)
+        temp += 1
     
-    for num in range(0, len(z)):
-        dist_sort[num] = dist_sort[num][::-1]
-        app_sort[num] = app_sort[num][::-1]
-        abs_sort[num] = abs_sort[num][::-1]
+    dist_sort = [dist_sort[num][::-1] for num in range(0, len(z))]
+    app_sort = [app_sort[num][::-1] for num in range(0, len(z))]
+    abs_sort = [abs_sort[num][::-1] for num in range(0, len(z))]
     
     print 'Ranking by Distance:'
     pprint(dist_sort)
@@ -50,4 +48,5 @@ def sortList(z):
     print 'Ranking by Absolute Brightness:'
     pprint(abs_sort)
 
+#dist_sort = [[num][::-1] for num in range(0, len(z))]    
 sortList(stars)
