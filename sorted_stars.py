@@ -1,3 +1,8 @@
+'''
+This function takes a list of stars with their respective distances and brightnesses and organizes them
+first by distance, then by apparent brightness, and finally by absolute brightness.
+'''
+
 from pprint import pprint
 
 #Name, Distance, Apparent Brightness, Absolute Brightness
@@ -24,19 +29,23 @@ abso = []
 abs_sort = []
 
 def sortList(z):
-    temp = 1
+    temp = 1 #temp is the index where the name and brightnesses are held
     while temp <= 3:
         if temp == 1:
-            dist = [[z[a][temp], z[a][0]] for a in range(0, len(z))]
-            dist_sort = sorted(dist)
+            #from the list stars, it takes the name of the star and their distance
+            dist = [[z[a][temp], z[a][0]] for a in range(0, len(z))] #Arranges list with distance as the first element
+            dist_sort = sorted(dist) #sorts list by distance
         elif temp == 2:
-            app = [[z[a][temp], z[a][0]] for a in range(0, len(z))]
-            app_sort = sorted(app)
+            #from the list stars, it takes the name of the star and their apparent brightness
+            app = [[z[a][temp], z[a][0]] for a in range(0, len(z))] #Arranges list with apparent brightness as the first element
+            app_sort = sorted(app) #sorts list by apparent brightness
         elif temp == 3:
-            abso = [[z[a][temp], z[a][0]] for a in range(0, len(z))]
-            abs_sort = sorted(abso)
+            #from the list stars, it takes the name of the star and their absolute brightness
+            abso = [[z[a][temp], z[a][0]] for a in range(0, len(z))] #Arranges list with absolute as the first element
+            abs_sort = sorted(abso) #sorts list by absolute brightness
         temp += 1
     
+    #Reverses list so that the name of the start comes first
     dist_sort = [dist_sort[num][::-1] for num in range(0, len(z))]
     app_sort = [app_sort[num][::-1] for num in range(0, len(z))]
     abs_sort = [abs_sort[num][::-1] for num in range(0, len(z))]
@@ -48,5 +57,4 @@ def sortList(z):
     print 'Ranking by Absolute Brightness:'
     pprint(abs_sort)
 
-#dist_sort = [[num][::-1] for num in range(0, len(z))]    
 sortList(stars)
