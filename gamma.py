@@ -1,12 +1,12 @@
 """
 
->>> gamma_factorial(3)
+>>> gamma(3)
 2
->>> gamma_factorial(8)
+>>> gamma(8)
 5040
->>> gamma_integral(3.5)
+>>> gamma(3.5)
 3.32335
->>> gamma_integral(5.5)
+>>> gamma(5.5)
 52.3428
 
 The gamma() function takes a value of t and depending on if it is a float or not will decide whether to use
