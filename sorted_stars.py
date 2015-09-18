@@ -1,6 +1,5 @@
 '''
-This function takes a list of stars with their respective distances and brightnesses and organizes them
-first by distance, then by apparent brightness, and finally by absolute brightness.
+This function takes a list of stars with their respective distances and brightnesses and organizes them first by distance, then by apparent brightness, and finally by absolute brightness.
 '''
 
 from pprint import pprint
