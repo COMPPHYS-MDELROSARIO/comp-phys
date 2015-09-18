@@ -9,7 +9,13 @@
 >>> gamma_integral(5.5)
 52.3428
 
+The gamma() function takes a value of t and depending on if it is a float or not will decide whether to use
+gamma_factorial or gamma_integral. If it is a decimal it will call gamma_factorial. If it is a float, it will
+call gamma_integral.
+
+
 """
+
 from math import exp
 from math import factorial 
 
@@ -37,14 +43,12 @@ def gamma_integral(t, a = 0, b = 1000, dx = 0.5):
     
 def gamma(t):
     if t % 1 == 0:
-        print 'factorial'
         print gamma_factorial(t)
     else:
-        print 'integral'
         print gamma_integral(t)
         
 
-gamma(3.5)
+gamma(5)
         
     
 if __name__ == "__main__":
