@@ -1,4 +1,3 @@
-from math import exp as m
 """
 
 >>> gamma_factorial(3)
@@ -11,8 +10,8 @@ from math import exp as m
 52.3428
 
 """
+from math import exp
 from math import factorial 
-from pprint import pprint
 
 def gamma_factorial(t):
     if t >= 1:
@@ -20,37 +19,37 @@ def gamma_factorial(t):
     return fact
 
 def gamma_func(x, t, dx = 0.5):
-    return x**(t-1)*m.exp(-x)*dx
+    return x**(t-1) * (exp(-x))*dx
     
 
-def gamma_integral(a = 0, b = 1000, dx = 0.5):
+def gamma_integral(t, a = 0, b = 1000, dx = 0.5):
     total_area = 0
     n = int((b-a)/dx)
     for y in range(0, n+1):
         x1 = a + (y-1) * dx
         x2 = a + y * dx
         
-        rect_area = ((gamma_func(x1) + gamma_func(x2)) / 2) * dx
+        rect_area = ((gamma_func(x1, t) + gamma_func(x2, t)) / 2.) * dx
         
         total_area += rect_area
+
     return total_area
     
-#pprint(gamma_factorial(4))
-
 def gamma(t):
-    if type(t) == int:
-        gamma_factorial(t)
+    if t % 1 == 0:
+        print 'factorial'
+        print gamma_factorial(t)
     else:
-        gamma_integral()
+        print 'integral'
+        print gamma_integral(t)
         
 
-gamma(3)        
+gamma(3.5)
         
     
 if __name__ == "__main__":
     
     import doctest
-    doctest.testmod()
-    
+    #doctest.testmod()
     
     
