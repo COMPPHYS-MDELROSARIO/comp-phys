@@ -1,3 +1,11 @@
+‘’’
+HW03
+Matthew del Rosario
+Matthew Espanol
+For some reason, the docstring is preventing me from running it in terminal
+‘’’
+
+
 import numpy as np
 
 def prime(a, b):
