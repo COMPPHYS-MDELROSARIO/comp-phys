@@ -1,7 +1,11 @@
 '''
 HW03
 Matthew del Rosario
-Matthew Espanol
+Matthew Español
+
+
+Asks the user to enter the range at which the prime numbers should be found.
+Prints all prime numbers within the range given by the input.
 '''
 
 
