@@ -1,3 +1,6 @@
+'''
+Takes a list of tuples and formats and arranges them in order of time first, then airline
+'''
 from pprint import pprint as p
 airports = {"DCA": "Washington, D.C.",
             "IAD": "Dulles",
@@ -27,7 +30,9 @@ flights = [("Southwest", 145,  "DCA", 1, 6.00),
 
 
 def flight_schedule(f):
-    newFlights = []
+    #newFlights = []
+    flightTime = []
+    myorder = [1,2,3,0]
     titles = ['Flight', 'Destination', 'Gate', 'Time']
 
     for x in range(0, len(f)):
@@ -39,13 +44,33 @@ def flight_schedule(f):
                 f[x][y] = airports[f[x][y]] #Converts the destination code to the destination name
         f[x][0:2] = [' '.join(f[x][0:2])] #Merges the 0 and 1 elements into a single element
 
+
+    #Manual sort by time
+    for elem in flights:
+        x = list(elem)
+        x.insert(0,x[3])
+        flightTime.append(x)
+
+        
+    flightTime2 = sorted(flightTime)
+    print flightTime2[0][0]
+
     #Sorts the list of tuples by element
-    newFlights = sorted(f, key=lambda x: x[3])  
+    flightAirline = sorted(f, key=lambda x: x[0])
+
 
     print('{:<20} {:<20} {:<20} {:<20}'.format(*titles)) #Unpacks list and spaces them by 20 units
     print 70*'-'
-    for a in range(0, len(newFlights)):
-        for line in [newFlights[a]]:
+    for a in range(0, len(flightTime2)):
+        for line in [flightTime2[a]]:
+            print('{:<20} {:<20} {:<20} {:<20}'.format(flightTime2[a][1], flightTime2[a][2], flightTime2[a][3], flightTime2[a][0])) #Rearranges list and spaces them by 20 units
+
+
+    print('{:<20} {:<20} {:<20} {:<20}'.format(*titles)) #Unpacks list and spaces them by 20 units
+    print 70*'-'
+    for b in range(0, len(flightAirline)):
+        for line in [flightAirline[b]]:
             print('{:<20} {:<20} {:<20} {:<20}'.format(*line)) #Unpacks list and spaces them by 20 units
+
 
 flight_schedule(flights)
