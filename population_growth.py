@@ -20,25 +20,30 @@ class Dolphins:
     
     def procreate(self, dolphs):
         can_mate = True
-        dad == False
-        mom == False
+        dad = False
+        mom = False
         sex_prob = random.sample(['male', 'female'], 1)[0]
         new_male = ''
         new_female = ''
         while dad == False or mom == False:
             if random.sample(dolphs, 1)[0].sex == 'male':
                 new_male = random.sample(dolphs, 1)[0]
-                dad == True
+                dad = True
             if random.sample(dolphs, 1)[0].sex == 'female':
                 new_female = random.sample(dolphs, 1)[0]
-                mom == True
+                mom = True
         while can_mate == True:
+            if self.age < 8 or new_male.mother == new_female.mother or new_male.father == new_female.father \
+            or np.absolute(new_male.age - new_female.age) > 10:
+                can_mate = False
+            '''
             if self.age < 8:
                 can_mate = False
             if new_male.mother == new_female.mother or new_male.father == new_female.father
                 can_mate = False
             if np.absolute(new_male.age - new_female.age) > 10:
                 can_mate = False
+            '''
             else:
                 namefromlist.Dolphins(namefromlist, dolphs, dolphs, sex_prob)
             
@@ -46,3 +51,5 @@ class Dolphins:
             
             
     
+
+d1 = Dolphins('hi')
