@@ -6,21 +6,28 @@ import urllib
 import re
 
 class Dolphins:
+    count = 1
+    
+    for time in range(0,150):
+        dolphs = 4
+        if time % 25 == 0:
+            print 'Entering year {:d} with ', dolphs, ', with {:d} breeding'.format(time,mjde)
+
     def __init__(self, name, mother, father, sex, age = 0):
         self.name = name
-        #self.sex = random.sample(['male', 'female'], 1)[0]
-        #self.birth = dt.datetime.now()
-        #print 'A {:s} dolphin named {:s} has been born!'.format(self.sex, name)
         self.mother = mother
         self.father = father
         self.sex = sex
         self.age = age
-    
+        self.can_give_birth = True
+
+    #Increases the age of the dolphin each timee it is called
     def dolph_age(self):
         self.age += 1
         return self.age
     
-    def name(self):
+    #Gets the list of names from the website and appends them to a list based on gender
+    def name_generator(self):
         count = 1
         male_names = []
         female_names = []
@@ -47,11 +54,22 @@ class Dolphins:
                     female_names.append(m2.group(2))
             count += 1
             
-            if self.sex() == 'male':
-                return random.sample(male_names, 1)[0]
+            if self.sex == 'male':
+                return male_names[count - 1]
             else:
                 return random.sample(female_names, 1)[0]
-
+            
+    #Determines if 5 years have passed after a dolphin has mated
+    def possible(self):
+        if self.can_give_birth == True:
+            self.can_give_birth = False
+            return ("can give birth")  
+        if self.can_give_birth == False:
+            self.__class__.count += 1
+            if self.__class__.count > 5:
+                self.can_give_birth = True
+                self.__class__.count = 1
+                
     
     def procreate(self, dolphs):
         can_mate = True
@@ -72,12 +90,11 @@ class Dolphins:
             or np.absolute(new_male.age - new_female.age) > 10:
                 can_mate = False
             else:
-                namefromlist.Dolphins(namefromlist, dolphs, dolphs, sex_prob)
+                name.Dolphins(name(), dolphs, dolphs, sex_prob)
             
             
             
             
     
 
-#d1 = Dolphins('hi')
-
+d1 = Dolphins('hi', '', '', 'male')
