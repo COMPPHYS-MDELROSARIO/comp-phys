@@ -1,3 +1,10 @@
+"""
+This program takes 4 initial dolphins and has them procreate under certain conditions. It does 10 trials,
+all spanning to 149 years and lists the current dolphin population and how many are currently breeding.
+It also takes into account dolphins that have died and has strict prerequisites for procreation such as
+age, relation, sex, and if the dolphins hae mated within 5 years.
+"""
+
 import random
 import numpy as np
 import os.path
@@ -6,7 +13,9 @@ import re
 from pdb import set_trace
 
 
-
+#This function properly assigns the male name to the male dolphin and the female name to the female dolphin
+#It also creates the instance of the baby dolphin and starts the count which tracks the time before
+#either dolphin can mate again
 def procreate(male_dolphs, female_dolphs, spouse1, spouse2, male_namer, female_namer):
     if spouse1.sex == 'male':
         malespouse = spouse1.name
@@ -28,7 +37,9 @@ def procreate(male_dolphs, female_dolphs, spouse1, spouse2, male_namer, female_n
             female_dolphs[kid_name] = Dolphins(kid_name, kid_sex, malespouse, femalespouse)
             malespouse.can_give_birth = 0
             femalespouse.can_give_birth = 0
-    
+
+#This function generates the name for the baby dolphin based on the gender
+#It gathers both male and female names from a website and writes them to a text file which is saved locally
 def name_generator(sex):
     count = 1
     count2 = 1
@@ -40,7 +51,7 @@ def name_generator(sex):
     filenm = 'males.txt'
     filenm2 = 'females.txt'
     
-    set_trace()
+    #set_trace()
     if os.path.isfile('males.txt') == True:
         ''
     else:
@@ -106,8 +117,7 @@ class Dolphins:
         self.age += 1
         self.can_give_birth += 1
     
-    #Gets the list of names from the website and appends them to a list based on gender
-                
+    #This function checks the eligibility of a dolphin to mate           
     def can_mate(self, spouse):
         if spouse.age < 8\
         or self.age < 8\
@@ -128,12 +138,15 @@ alive = []
 male_dolphs = []
 female_dolphs = []
 
+#This loop makes sure that the lengths are all the same
 for k in range(0,10):
     male_dolphs.append(''+str(k))
     female_dolphs.append(''+str(k))
     alive.append(''+str(k))
     
-            
+#This block of code starts the 10 trials all spanning 150 years
+#Also takes into account the amount of total dolphins, dead dolphins, and currently breeding dolphins
+#Updates the user every 25 years with the dolphin population information
 for x in range(0, 10):    
     male_dolphs[x] = {'James':Dolphins('James', 'male', '', '') , 'John':Dolphins('John', 'male', '', '')}
     female_dolphs[x] = {'Mary':Dolphins('Mary','female', '', '' ), 'Patricia':Dolphins('Patricia','female', '', '' )}
@@ -180,7 +193,7 @@ for x in range(0, 10):
         
         time_years += 1
 
-
+#This block of code calculates the standard deviation of the dolphin population and plots it
 #stand_dev = []
 #for a in range(0, 150):
 #    stand_dev.append((np.mean([b][a]for b in alive), np.std([b][a] for b in alive)))
