@@ -46,61 +46,59 @@ def make_let_im(let_file, dim = 16, ylo = 70, yhi = 220, xlo = 10, xhi = 200, ed
 
 alph = string.ascii_uppercase
 #This for loop prints out the cropped image of each letter and adjusts edge_pix for each letter accordingly
-#for letters in alph:
-#    if letters == 'A':
-#        edge = 138
-#    elif letters == 'B':
-#        edge = 130
-#    elif letters == 'C':
-#        edge = 129
-#    elif letters == 'D':
-#        edge = 140
-#    elif letters == 'E':
-#        edge = 120
-#    elif letters == 'F':
-#        edge = 113
-#    elif letters == 'G':
-#        edge = 148
-#    elif letters == 'H':
-#        edge = 147
-#    elif letters == 'I':
-#        edge = 130
-#    elif letters == 'J':
-#        edge = 85
-#    elif letters == 'K':
-#        edge = 126
-#    elif letters == 'L':
-#        edge = 106
-#    elif letters == 'M':
-#        edge = 160
-#    elif letters == 'N':
-#        edge = 150
-#    elif letters == 'O':#***
-#        edge = 155
-#    elif letters == 'P':#***
-#        edge = 125
-#    elif letters == 'Q':
-#        edge = 160
-#    elif letters == 'R':#***
-#        edge = 130
-#    elif letters == 'S':#***
-#        edge = 113
-#    elif letters == 'T':
-#        edge = 120
-#    elif letters == 'U':
-#        edge = 150
-#    elif letters == 'V':
-#        edge = 136
-#    elif letters == 'W':
-#        edge = 190
-#    elif letters == 'X':#***
-#        edge = 126
-#    elif letters == 'Y':#***
-#        edge = 119
-#    elif letters == 'Z':
-#        edge = 115
-#        
-#        
-#    print(make_let_im('letter'+letters+'.png', plot_let = True, edge_pix = edge))
-
-print(make_let_im('letterB.png', plot_let = True))
+for letters in alph:
+    if letters == 'A':
+        edge = 138
+    elif letters == 'B':
+        edge = 130
+    elif letters == 'C':
+        edge = 129
+    elif letters == 'D':
+        edge = 140
+    elif letters == 'E':
+        edge = 120
+    elif letters == 'F':
+        edge = 113
+    elif letters == 'G':
+        edge = 148
+    elif letters == 'H':
+        edge = 147
+    elif letters == 'I':
+        edge = 130
+    elif letters == 'J':
+        edge = 85
+    elif letters == 'K':
+        edge = 126
+    elif letters == 'L':
+        edge = 106
+    elif letters == 'M':
+        edge = 160
+    elif letters == 'N':
+        edge = 150
+    elif letters == 'O':
+        edge = 155
+    elif letters == 'P':
+        edge = 125
+    elif letters == 'Q':
+        edge = 160
+    elif letters == 'R':
+        edge = 130
+    elif letters == 'S':
+        edge = 113
+    elif letters == 'T':
+        edge = 120
+    elif letters == 'U':
+        edge = 150
+    elif letters == 'V':
+        edge = 136
+    elif letters == 'W':
+        edge = 190
+    elif letters == 'X':
+        edge = 126
+    elif letters == 'Y':
+        edge = 119
+    elif letters == 'Z':
+        edge = 115
+        
+        
+    print(make_let_im('letter'+letters+'.png', plot_let = True, edge_pix = edge))
