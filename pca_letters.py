@@ -1,3 +1,9 @@
+'''
+Matthew del Rosario
+Matt Espanol
+Homework 8
+'''
+
 from skimage import transform,data,io
 import matplotlib.pyplot as plt
 from IPython import display
