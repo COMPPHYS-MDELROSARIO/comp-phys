@@ -54,7 +54,7 @@ def make_let_im(let_file, dim = 16, ylo = 70, yhi = 220, xlo = 10, xhi = 200, ed
     #Uncomment the following line to print out the array
     #print LImgur_final = LImgur_new - np.mean(LImgur_new)
     
-    return LImgur_new, LImgur_flat
+    return LImgur, LImgur_flat
 
 def alphabet_pca(X, n_comp = 5):
     pca = PCA(n_comp)
